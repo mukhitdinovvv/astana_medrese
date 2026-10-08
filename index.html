@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Медресеге қолдау көрсетіңіз</title>
+<meta name="description" content="Шәкірттердің білім жолына үлес қосыңыз. Садақаңызды Kaspi арқылы жіберіңіз.">
+<style>
+:root{
+  --blue:#071b78;
+  --blue2:#0b2aa0;
+  --ink:#10183b;
+  --muted:#69718c;
+  --bg:#f7f9ff;
+  --white:#fff;
+  --accent:#ff8d83;
+  --accent2:#ff554d;
+  --line:#e7eaf5;
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.container{width:min(1080px,calc(100% - 32px));margin:auto}
+.top{
+  min-height:760px;color:#fff;background:
+  radial-gradient(circle at 80% 10%,rgba(53,91,220,.55),transparent 32%),
+  linear-gradient(160deg,#06145d,#09238d 65%,#071b78);
+  overflow:hidden;
+}
+/* ХЕДЕР: ақ фон, төмен сырғытқанда жасырылады, жоғары сырғытқанда қайта шығады */
+.site-header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 18px rgba(7,27,120,.08);transition:transform .3s ease}
+.site-header.hide{transform:translateY(-100%)}
+.hbar{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{display:flex;align-items:center}
+.logo img{height:48px;width:auto;max-width:200px;object-fit:contain;display:block}
+.logo-text{display:none;font-weight:900;letter-spacing:2px;font-size:16px;line-height:1.15;color:var(--blue)}
+.hbtn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:900;font-size:14px;padding:11px 18px;border-radius:13px;box-shadow:0 8px 18px rgba(255,84,77,.22);transition:.2s}
+.hbtn:hover{transform:translateY(-1px)}
+.hero{padding:56px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800;opacity:.75}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.02;margin:14px 0 20px;letter-spacing:-2px}
+.hero p{font-size:18px;line-height:1.65;max-width:580px;color:#dfe5ff}
+.quote{border-left:3px solid #fff;padding-left:18px;margin:28px 0;font-size:17px;line-height:1.55}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:17px 24px;border-radius:17px;font-weight:900;box-shadow:0 14px 30px rgba(255,84,77,.25);transition:.2s}
+.cta:hover{transform:translateY(-2px)}
+.small{font-size:13px;opacity:.72;margin-top:11px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);padding:8px 13px;border-radius:999px}
+.hero-card{background:#fff;padding:10px;border-radius:28px;box-shadow:0 30px 70px rgba(0,0,0,.28);transform:rotate(1deg)}
+.hero-card img{width:100%;height:470px;object-fit:cover;border-radius:21px;display:block}
+.section{padding:80px 0}
+.section h2{text-align:center;font-size:clamp(30px,4vw,46px);margin:0 0 14px;letter-spacing:-1px}
+.lead{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 38px;line-height:1.7}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.help{background:radial-gradient(circle at 12% 0%,rgba(255,141,131,.18),transparent 34%),radial-gradient(circle at 92% 100%,rgba(11,42,160,.12),transparent 38%),var(--bg)}
+.pill{width:max-content;margin:0 auto 16px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);background:#e8edff;padding:8px 14px;border-radius:999px}
+.story-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 30px;box-shadow:0 18px 44px rgba(7,27,120,.08);overflow:hidden;transition:.25s}
+.story-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.story-card:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(7,27,120,.14)}
+.s-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:28px;background:linear-gradient(135deg,#eef2ff,#dfe6ff);margin-bottom:18px}
+.help-cta{text-align:center;margin-top:34px}
+.story-card strong{display:block;font-size:22px;margin-bottom:10px}
+.story-card p{line-height:1.7;color:#5f6882;margin:0}
+.gallery-wrap{overflow:hidden}
+.gallery{display:flex;gap:18px;width:max-content;animation:scroll 40s linear infinite}
+.gallery:hover{animation-play-state:paused}
+.gcard{width:270px;height:340px;border-radius:24px;overflow:hidden;background:#dfe5f7;position:relative;flex:none}
+.gcard img{width:100%;height:100%;object-fit:cover}
+.glabel{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(5,18,77,.82);color:#fff;padding:11px 13px;border-radius:14px;font-weight:700;font-size:13px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.donate{background:linear-gradient(160deg,#071761,#0b2b9b);color:#fff}
+.donate-box{display:grid;grid-template-columns:1fr .9fr;gap:36px;align-items:center}
+.donate h2{text-align:left;margin-bottom:18px}
+.donate p{color:#dce4ff;line-height:1.7}
+.amounts{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.amount{border:1px solid rgba(255,255,255,.25);padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.08);font-weight:800}
+.pay-card{background:#fff;color:var(--ink);border-radius:26px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.22)}
+.pay-card h3{margin-top:0;font-size:23px}
+.pay-card p{color:var(--muted);font-size:14px}
+.pay-button{display:flex;justify-content:center;align-items:center;background:#ff554d;color:#fff;padding:17px;border-radius:15px;font-weight:900;margin-top:18px}
+.video{max-width:430px;margin:auto;background:#000;border-radius:26px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.15);aspect-ratio:9/16}
+.video iframe{width:100%;height:100%;border:0}
+
+.foot{background:#06145d;color:#cfd8ff;padding:34px 0 22px;font-size:14px}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:20px 30px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand{font-weight:900;letter-spacing:2px;color:#fff}
+.foot-links{display:flex;flex-wrap:wrap;gap:10px 24px}
+.foot-links a:hover{color:#fff;text-decoration:underline}
+.foot-bottom{padding-top:18px;font-size:12px;opacity:.6;text-align:center}
+@media(max-width:760px){
+ .top{min-height:auto}.hero{grid-template-columns:1fr;padding-top:10px;padding-bottom:44px;gap:32px}.hero-card{transform:none}.hero-card img{height:340px}
+ .hbar{height:64px}.logo img{height:40px}.hbtn{font-size:13px;padding:10px 14px}
+ .hero-text{display:flex;flex-direction:column;align-items:stretch}
+ .eyebrow{order:1;font-size:11px;letter-spacing:1.5px;line-height:1.5}
+ h1{order:2;font-size:38px;line-height:1.08;margin:12px 0 14px}
+ .hero p{order:3;font-size:16px;line-height:1.6;margin:0 0 24px}
+ .cta{order:4;width:100%;padding:19px 18px;font-size:17px}
+ .chips{order:5;justify-content:center;margin-top:14px}
+ .quote{order:6;margin:28px 0 0;padding:16px 18px;font-size:15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-left:3px solid var(--accent);border-radius:16px}
+ .story,.donate-box{grid-template-columns:1fr}.donate h2{text-align:left}
+ .section{padding:58px 0}
+ h1{letter-spacing:-1px}
+ .foot-top{flex-direction:column;text-align:center}
+ .foot-links{flex-direction:column;gap:8px;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container hbar">
+    <a class="logo" href="#"><img src="logo.png" alt="Astana Medrese" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-text">ASTANA<br>MEDRESE</span></a>
+    <a class="hbtn" href="https://kaspi.kz/pay/MedreseUniversal?7056=11121" target="_blank" rel="noopener">Садақа жасау</a>
+  </div>
+</header>
+
+<header class="top">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">Білімге қосқан үлес — болашаққа қосқан үлес</div>
+        <h1>Бір садақаңыз - шәкірттің жарқын болашағы</h1>
+        <p>Медреседе білім алып жатқан шәкірттерге қолдау көрсетіп, сауапты іске үлес қосыңыз. Бар болғаны 1 минут — Kaspi арқылы.</p>
+        <div class="quote">«Кім білім іздеу жолына түссе, Алла оған Жәннатқа апаратын жолды жеңілдетеді.»<br><b>(Муслим)</b></div>
+        <a class="cta" href="https://kaspi.kz/pay/MedreseUniversal?7056=11121" target="_blank" rel="noopener">Kaspi арқылы садақа жасау →</a>
+        <div class="chips"><span>500 ₸</span><span>1 000 ₸</span><span>2 000 ₸</span><span>Кез келген сома</span></div>
+      </div>
+
+      <div class="hero-card">
+        <img src="reference-photo.jpg" alt="Медреседегі сабақтан көрініс">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section help">
+  <div class="container">
+    <div class="pill">Қалай көмектесе аласыз?</div>
+    <h2>Бір садақа — бір шәкіртке қолдау</h2>
+    <p class="lead">Сіздің жасаған әрбір қайырымыңыз білім алып жатқан шәкірттерге қолдау көрсетуге және медресенің дамуына өз үлесін қоса алады.</p>
+    <div class="story">
+      <div class="story-card"><div class="s-icon">📖</div><strong>Білімге қолдау</strong><p>Шәкірттердің білім алуына қажетті жағдай жасауға атсалысыңыз.</p></div>
+      <div class="story-card"><div class="s-icon">🤲</div><strong>Сауапты іске үлес</strong><p>Кішкентай ғана садақаңыздың өзі үлкен жақсылыққа себеп болуы мүмкін.</p></div>
+    </div>
+    <div class="help-cta"><a class="cta" href="https://kaspi.kz/pay/MedreseUniversal?7056=11121" target="_blank" rel="noopener">Үлес қосу →</a></div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <h2>Медресе өмірінен</h2>
+    <p class="lead"></p>
+  </div>
+  <div class="gallery-wrap">
+    <div class="gallery">
+      <div class="gcard"><img src="gallery-1.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Шәкірттермен сабақ</div></div>
+      <div class="gcard"><img src="gallery-2.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Білім беру үдерісі</div></div>
+      <div class="gcard"><img src="gallery-3.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Медресе өмірі</div></div>
+      <div class="gcard"><img src="gallery-4.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Шәкірттерге қолдау</div></div>
+      <div class="gcard"><img src="gallery-5.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Күнделікті өмір</div></div>
+      <div class="gcard"><img src="gallery-1.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Шәкірттермен сабақ</div></div>
+      <div class="gcard"><img src="gallery-2.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Білім беру үдерісі</div></div>
+      <div class="gcard"><img src="gallery-3.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Медресе өмірі</div></div>
+      <div class="gcard"><img src="gallery-4.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Шәкірттерге қолдау</div></div>
+      <div class="gcard"><img src="gallery-5.jpg" alt="" onerror="this.onerror=null;this.src='reference-photo.jpg'"><div class="glabel">Күнделікті өмір</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section donate">
+  <div class="container donate-box">
+    <div>
+      <div class="eyebrow">Садақа жасау</div>
+      <h2>Білім жолына бірге үлес қосайық</h2>
+      <p>Қайырымдылық жасау үшін төмендегі батырманы басып, Kaspi төлем парақшасына өтіңіз.</p>
+      <div class="amounts"><span class="amount">500 ₸</span><span class="amount">1 000 ₸</span><span class="amount">2 000 ₸</span><span class="amount">Кез келген сома</span></div>
+      <a class="cta" href="https://kaspi.kz/pay/MedreseUniversal?7056=11121" target="_blank" rel="noopener">Kaspi-ге өту →</a>
+    </div>
+    <div class="pay-card">
+      <h3>Садақа жасау өте оңай</h3>
+      <p>1. «Kaspi-ге өту» батырмасын басыңыз.</p>
+      <p>2. Kaspi.kz төлем беті ашылады.</p>
+      <p>3. Қалаған соманы көрсетіп, төлемді аяқтаңыз.</p>
+      <a class="pay-button" href="https://kaspi.kz/pay/MedreseUniversal?7056=11121" target="_blank" rel="noopener">Садақа жасау</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Медресе тынысынан</h2>
+    <p class="lead">Шәкірттердің күнделікті білім алу барысын көріңіз.</p>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/JwvBchdwfoA?rel=0&playsinline=1&modestbranding=1" title="Медресе туралы видео" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">ASTANA MEDRESE</div>
+      <div class="foot-links">
+        <span>⌖ Астана қ., Кобыланды батыр, 3/1</span>
+        <a href="https://instagram.com/Astana_medrese" target="_blank" rel="noopener">@Astana_medrese</a>
+        <span>☎ +7 708 041 0758</span>
+      </div>
+    </div>
+    <div class="foot-bottom">© Astana Medrese • Білімге қосқан үлес — болашаққа қосқан үлес</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var h=document.getElementById('siteHeader'),last=0;
+  window.addEventListener('scroll',function(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>80&&y>last){h.classList.add('hide')}else{h.classList.remove('hide')}
+    last=y<0?0:y;
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
